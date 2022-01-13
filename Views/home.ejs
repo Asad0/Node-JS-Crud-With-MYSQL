@@ -1,0 +1,71 @@
+<html>
+    <head>
+    <title>Employee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .rows{
+            width: 100%;
+            background-color: aliceblue;
+            height: 80px;
+            display: flex;
+            justify-content: space-evenly;
+            
+        }
+        .brandss{
+            line-height: 80px;
+        }
+        .nav{
+            background-color: blue;
+        }
+        .nav a{
+            line-height:80px ;
+            text-decoration: none;
+            
+            color: white;
+        }
+    </style>
+    </head>
+    <body>
+        <header>
+            <div class="rows">
+                <div class="brands"><h1>Company Name</h1></div>
+                <div class="nav">
+                   <a href="add">Add Employee</a>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="result">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">address</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% recorde.forEach(function(data) { %>
+                      <tr>
+                        <th scope="row"><%= data.staff_ID %></th>
+                        <td><%= data.FirstName %></td>
+                        <td><%= data.LastName %></td>
+                        <td><%= data.Address %></td>
+                        <td><%= data.Phone %></td>
+                        <td><%= data.Gender %></td>
+                        <td><a href="/update/<%= data.staff_ID %>" class="btn btn-primary">Update</a></td>
+                        <td><a href=" /delete/<%= data.staff_ID %>" class="btn btn-Danger">Del</a></td>
+                      </tr>
+                      <% }) %>
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </section>
+    </body>
+</html>

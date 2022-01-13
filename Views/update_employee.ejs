@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Employee Add</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            .rows{
+                width: 100%;
+                background-color: aliceblue;
+                height: 80px;
+                display: flex;
+                justify-content: space-evenly;
+                
+            }
+            .brandss{
+                line-height: 80px;
+            }
+            .nav{
+                background-color: blue;
+            }
+            .nav a{
+                line-height:80px ;
+                text-decoration: none;
+                
+                color: white;
+            }
+            section{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .add{
+                width: 600px;
+                background-color:whitesmoke;
+                padding: 20px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="rows">
+                <div class="brands"><h1>Company Name</h1></div>
+                <div class="nav">
+                   <a href="/">Employee List</a>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="add">
+                <% recorde.forEach(function(data) { %>
+                <form action="/updateRecorde/<%= data.staff_ID %>" method="post">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">First Name</label>
+                      <input type="text" class="form-control" name="FirstName" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= data.FirstName %>"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Last Name</label>
+                        <input type="text" class="form-control" name="LastName" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= data.LastName %>" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Address</label>
+                        <textarea class="form-control" name="Address" id="exampleFormControlTextarea1" value="<%= data.FirstName %>" rows="3" required><%= data.Address %></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Phone No</label>
+                        <input type="text" class="form-control" name="Phone" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= data.Phone %>" minlength="11" required>
+                      </div>
+                      <div class="form-group">
+                        <label >Gender</label>
+                          <select class="form-control" name="Gender" id="" required>
+                                <option  value="<%= data.FirstName %>"><%= data.Gender %></option>
+                                <option value="False">Select Another</option>
+                                <option value="Male">Male</option>
+                              <option value="FeMale">Fe-Male</option>
+                          </select>
+                      </div>
+                    <button type="submit" class="btn btn-Success">Update</button>
+                    
+                </form>
+                <% }) %>  
+            </div>
+        </section>
+    </body>
+</html>
